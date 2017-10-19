@@ -2,18 +2,38 @@
 <div class="content">
   <v-slide></v-slide>
   <v-notice></v-notice>
-  <!-- <blog></blog> -->
+  <v-blog :blogs="blog"></v-blog>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
 import slide from '@/components/Home/slide'
 import notice from '@/components/Home/notice'
-// import blog from './Home/Content/blog'
+import blog from '@/components/Home/blog'
 export default {
+  name: 'index',
+  data() {
+    return {
+      blog: ''
+    }
+  },
   components: {
     'v-slide': slide,
-    'v-notice': notice
+    'v-notice': notice,
+    'v-blog': blog
+  },
+  created() {
+    this.$http({
+        method: 'get',
+        url: 'http://47.94.89.18/api/core/get_posts/',
+    }).then((res) => {
+      this.blog = res.data.posts
+
+      console.log(this.blog)
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
   }
 }
 </script>

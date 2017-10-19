@@ -4,12 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import axios from "axios"
+import moment from "moment"
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 require('swiper/dist/css/swiper.css')
 
 Vue.use(VueRouter)
 Vue.use(VueAwesomeSwiper)
 Vue.prototype.$http = axios
+Vue.prototype.$moment = moment
 
 import index from '@/components/Home/index'
 
@@ -21,7 +23,13 @@ const router = new VueRouter({
             name: 'index',
             component: index
         }
-    ]
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        return {
+            x: 0,
+            y: 0
+        }
+    }
 })
 
 Vue.config.productionTip = false
@@ -34,17 +42,17 @@ new Vue({
     components: {
         App
     },
-    created() {
-      this.$http({
-          method: 'get',
-          url: 'http://47.94.89.18/?json=1',
-        }).then((res) => {
-          this.api = res.data.posts
-
-          console.log(this.api)
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
-    }
+    // created() {
+    //   this.$http({
+    //       method: 'get',
+    //       url: 'http://47.94.89.18/?json=1',
+    //     }).then((res) => {
+    //       this.api = res.data.posts
+    //
+    //       console.log(this.api)
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //     })
+    // }
 })
