@@ -28,6 +28,7 @@ export default {
         url: 'http://47.94.89.18/api/core/get_posts/',
     }).then((res) => {
       this.blog = res.data.posts
+    //   this.view = res.data.posts.custom_fields
 
       console.log(this.blog)
     })

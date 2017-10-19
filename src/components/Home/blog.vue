@@ -4,36 +4,34 @@
     <div class="blog-module" v-for="(blog, index) in blogs" key="index">
       <div class="thumb">
         <router-link to="/">
-          <!-- <img :src="blog.thumb"> -->
-          <img src="" alt="">
+          <img :src="blog.thumbnail?blog.thumbnail:defaultImgUrl">
         </router-link>
       </div>
       <div class="main">
         <h4 class="title">
           <router-link to="/detail">{{ blog.title_plain }}</router-link>
         </h4>
-        <p class="info">{{ blog.excerpt }}</p>
+        <p class="info" v-if="blog.excerpt">{{ blog.excerpt | info }}</p>
         <div class="list">
           <p class="list-icon time">
-            <i class="icon iconfont icon-clock2"></i>
-            <span>{{ blog.modified | tranTime }}</span>
-            <span>1</span>
+            <i class="icon iconfont icon-updatetime"></i>
+            <span>{{ blog.modified | moment }}</span>
           </p>
-          <p class="list-icon view">
+          <p class="list-icon view" v-if="blog.custom_fields.views">
             <i class="icon iconfont icon-view"></i>
-            <span>1</span>
+            <span>{{ blog.custom_fields.views | views }}</span>
           </p>
           <p class="list-icon comments">
-            <i class="icon iconfont icon-iconcomments"></i>
-            <span>1</span>
+            <i class="icon iconfont icon-comments"></i>
+            <span>{{ blog.comment_count }}</span>
           </p>
           <p class="list-icon like">
-            <i class="icon iconfont icon-like1"></i>
+            <i class="icon iconfont icon-like"></i>
             <span>1</span>
           </p>
           <p class="list-icon tag">
             <i class="icon iconfont icon-tag"></i>
-            <span>think</span>
+            <span>{{ blog.categories[0].slug }}</span>
           </p>
         </div>
       </div>
@@ -47,23 +45,31 @@ import Vue from 'vue'
 
 export default {
   name: 'blog',
+
   props: {
     blogs: ''
   },
-  // data() {
-  //   return {
-  //     blogs: {}
-  //   }
-  // },
+  data() {
+    return {
+      defaultImgUrl: '../static/images/logo.png',
+    }
+  },
   filters: {
-    tranTime: function(value) {
-      value = Vue.prototype.$moment(value).fromNow()
+    info: function(value) {
+      const reg =  /<p>(.*?)<\/p>/g
+      const result = value.match(reg)
 
-      return value
+      return RegExp.$1
+    },
+    moment: function(value) {
+      return Vue.prototype.$moment(value).fromNow()
+  },
+    views: function(value) {
+        return value.toString()
     }
   },
   // created() {
-  //   this.$moment() = this.$moment()
+  //   console.log(this.blogs[1].custom_fields.views[0])
   // }
 }
 </script>
@@ -79,12 +85,6 @@ export default {
     margin-top 1em
     .blog-item
       width 100%
-      .blog-modulehover
-        background rgba(255, 255, 255, 0.6)
-        .thumb
-          a
-            img
-              transform translateX(-1em)
       .blog-module
         position relative
         width 100%
@@ -93,6 +93,12 @@ export default {
         margin-bottom 1em
         display flex
         transition background trans
+        &:hover
+          background rgba(255, 255, 255, 0.6)
+          .thumb
+            a
+              img
+                transform translateX(-1em)
         .thumb
           flex 0 0 17em
           width 17em
@@ -115,16 +121,16 @@ export default {
         .main
           flex 1
           padding-right 1.6em
-          .titlehover
-            transform translateX(.7em)
-            a::before
-              width 100%
           .title
             line-height 2em
             padding-bottom .5em
             font-weight 700
             transform translateX(0)
             transition transform trans
+            &:hover
+              transform translateX(.7em)
+              a::before
+                width 100%
             a
               position relative
               font-size 1.4em
