@@ -33,7 +33,7 @@ export default {
       console.log(this.blog)
     })
     .catch(function(error) {
-      console.log(error);
+      console.error(error);
     })
   }
 }
