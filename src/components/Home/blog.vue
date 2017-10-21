@@ -9,7 +9,7 @@
       </div>
       <div class="main">
         <h4 class="title">
-          <router-link to="/detail">{{ blog.title_plain }}</router-link>
+          <router-link :to="{ name: 'detail', params: { id: blog.id }}">{{ blog.title_plain }}</router-link>
         </h4>
         <p class="info" v-if="blog.excerpt">{{ blog.excerpt | info }}</p>
         <div class="list">
@@ -58,16 +58,16 @@ export default {
       console.log(value)
     },
     info: function(value) {
-      const reg =  /<p>(.*?)<\/p>/g
+      const reg = /<p>(.*?)<\/p>/g
       const result = value.match(reg)
 
       return RegExp.$1
     },
     moment: function(value) {
       return Vue.prototype.$moment(value).fromNow()
-  },
+    },
     views: function(value) {
-        return value.toString()
+      return value.toString()
     }
   },
 }
