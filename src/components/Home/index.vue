@@ -1,6 +1,6 @@
 <template>
 <div class="content">
-  <v-slide></v-slide>
+  <v-slide :slides="blog"></v-slide>
   <v-notice></v-notice>
   <v-blog :blogs="blog"></v-blog>
 </div>
@@ -26,14 +26,14 @@ export default {
     this.$http({
         method: 'get',
         url: 'http://47.94.89.18/api/core/get_posts/',
-    }).then((res) => {
-      this.blog = res.data.posts
+      }).then((res) => {
+        this.blog = res.data.posts
 
-      console.log(this.blog)
-    })
-    .catch(function(error) {
-      console.error(error);
-    })
+        console.log(this.blog)
+      })
+      .catch(function(error) {
+        console.error(error);
+      })
   }
 }
 </script>

@@ -4,7 +4,7 @@
     <div class="blog-module" v-for="(blog, index) in blogs" key="index">
       <div class="thumb">
         <router-link to="/">
-          <img :src="blog.thumbnail?blog.thumbnail:defaultImgUrl">
+          <img :src="blog.thumbnail_images?blog.thumbnail_images.full.url:defaultImgUrl">
         </router-link>
       </div>
       <div class="main">
@@ -45,7 +45,6 @@ import Vue from 'vue'
 
 export default {
   name: 'blog',
-
   props: {
     blogs: ''
   },
@@ -55,6 +54,9 @@ export default {
     }
   },
   filters: {
+    aa: function(value) {
+      console.log(value)
+    },
     info: function(value) {
       const reg =  /<p>(.*?)<\/p>/g
       const result = value.match(reg)
@@ -68,9 +70,6 @@ export default {
         return value.toString()
     }
   },
-  // created() {
-  //   console.log(this.blogs[1].custom_fields.views[0])
-  // }
 }
 </script>
 
@@ -106,11 +105,15 @@ export default {
           margin-right 1em
           padding-left 0.5em
           a
+            position relative
             width 100%
             height 100%
             display block
             overflow hidden
             img
+              position absolute
+              top -1em
+              left -.5em
               min-width 100%
               max-width calc(100% + 1.5em)
               width calc(100% + 1.5em)
