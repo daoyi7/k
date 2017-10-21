@@ -2,9 +2,9 @@
 <nav class="nav">
   <div class="nav-wrap">
     <div class="nav-item" v-for="(nav,index) in navs" key="index">
-      <router-link class="nav-link" :to="nav.url">
-        <i :class="nav.icon"></i>
-        <span class="nav-text">{{ nav.name }}</span>
+      <router-link class="nav-link" :to="{ name: nav.slug, params: { id: nav.slug }}">
+        <i :class="nav.description"></i>
+        <span class="nav-text">{{ nav.title }}</span>
       </router-link>
     </div>
   </div>
@@ -15,33 +15,21 @@
 export default {
   data() {
     return {
-      navs: [{
-          url: "/home",
-          icon: "icon iconfont icon-home",
-          name: "HOME"
-        },
-        {
-          url: "/blog",
-          icon: "icon iconfont icon-blog",
-          name: "BLOG"
-        },
-        {
-          url: "/project",
-          icon: "icon iconfont icon-project",
-          name: "PROJECT"
-        },
-        {
-          url: "/think",
-          icon: "icon iconfont icon-think",
-          name: "THINK"
-        },
-        {
-          url: "about",
-          icon: "icon iconfont icon-me",
-          name: "ABOUT"
-        },
-      ]
+      navs: '',
     }
+  },
+  created() {
+    this.$http({
+        method: 'get',
+        url: 'http://47.94.89.18/api/core/get_category_index/',
+      }).then((res) => {
+        this.navs = res.data.categories
+
+        console.log(this.navs)
+      })
+      .catch(function(error) {
+        console.error(error);
+      })
   }
 }
 </script>

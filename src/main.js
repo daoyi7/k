@@ -24,7 +24,27 @@ const router = new VueRouter({
     },
     {
       path: '/home',
-      name: 'index',
+      name: 'home',
+      component: index
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: index
+    },
+    {
+      path: '/project',
+      name: 'project',
+      component: index
+    },
+    {
+      path: '/think',
+      name: 'think',
+      component: index
+    },
+    {
+      path: '/about',
+      name: 'about',
       component: index
     },
     {
