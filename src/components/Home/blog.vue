@@ -9,7 +9,21 @@
       </div>
       <div class="main">
         <h4 class="title">
-          <router-link :to="{ name: 'detail', params: { id: blog.id }}">{{ blog.title_plain }}</router-link>
+          <router-link
+          :to="{
+            name: 'detail',
+            params: {
+              id: blog.id,
+              title: blog.title,
+              content: blog.content,
+              updatetime: blog.modified,
+              type: blog.categories[0].slug,
+              author: blog.author.name,
+            }
+            }"
+          >
+          {{ blog.title_plain }}
+        </router-link>
         </h4>
         <p class="info" v-if="blog.excerpt">{{ blog.excerpt | info }}</p>
         <div class="list">
@@ -51,6 +65,11 @@ export default {
   data() {
     return {
       defaultImgUrl: '../static/images/logo.png',
+    }
+  },
+  watch: {
+    '$route'(to, from) {
+      this.fetchData()
     }
   },
   filters: {

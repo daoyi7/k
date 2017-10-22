@@ -17,7 +17,8 @@ import index from '@/components/Home/index'
 import detail from '@/components/Blog/detail'
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
+  'linkActiveClass': 'active',
   routes: [{
       path: '/',
       redirect: '/home'
@@ -71,17 +72,4 @@ new Vue({
   components: {
     App
   },
-  // created() {
-  //   this.$http({
-  //       method: 'get',
-  //       url: 'http://47.94.89.18/?json=1',
-  //     }).then((res) => {
-  //       this.api = res.data.posts
-  //
-  //       console.log(this.api)
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     })
-  // }
 })
