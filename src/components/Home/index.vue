@@ -3,6 +3,7 @@
   <v-slide :slides="blog"></v-slide>
   <v-notice></v-notice>
   <v-blog :blogs="blog"></v-blog>
+  <backtop></backtop>
 </div>
 </template>
 
@@ -10,6 +11,8 @@
 import slide from '@/components/Home/slide'
 import notice from '@/components/Home/notice'
 import blog from '@/components/Home/blog'
+import backtop from '@/components/Public/backtop'
+
 export default {
   name: 'index',
   data() {
@@ -20,7 +23,8 @@ export default {
   components: {
     'v-slide': slide,
     'v-notice': notice,
-    'v-blog': blog
+    'v-blog': blog,
+    'backtop': backtop
   },
   created() {
     this.$http({

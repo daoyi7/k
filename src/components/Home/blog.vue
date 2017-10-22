@@ -1,7 +1,7 @@
 <template>
 <div class="blog-wrap">
   <div class="blog-item">
-    <div class="blog-module" v-for="(blog, index) in blogs" key="index">
+    <div class="blog-module" v-for="(blog, index) in blogs" :key="blog.id">
       <div class="thumb">
         <router-link to="/">
           <img :src="blog.thumbnail_images?blog.thumbnail_images.full.url:defaultImgUrl">
@@ -54,9 +54,6 @@ export default {
     }
   },
   filters: {
-    aa: function(value) {
-      console.log(value)
-    },
     info: function(value) {
       const reg = /<p>(.*?)<\/p>/g
       const result = value.match(reg)
