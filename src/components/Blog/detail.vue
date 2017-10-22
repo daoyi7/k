@@ -4,7 +4,7 @@
         <span>{{ this.title }}</span>
       </h2>
       <div class="main">
-        {{ this.content }}
+        <pre>{{ this.content }}</pre>
       </div>
       <div class="more">
         <span class="published">This article published by {{ this.author }}</span>
