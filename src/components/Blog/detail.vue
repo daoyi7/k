@@ -40,7 +40,6 @@ export default {
         }
       }).then((res) => {
         this.data = res.data.posts
-        console.log(typeof this.data)
 
         for(let i=0;i<this.data.length;i++) {
           idArr.push(this.data[i].id)
@@ -53,7 +52,6 @@ export default {
         this.type = this.data[index].categories[0].slug
         this.author = this.data[index].author.name
 
-        console.log(typeof this.title);
       })
     }
   },
@@ -72,4 +70,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+  .detail
+    float left
+    position relative
+    overflow hidden
+    width 63.4em
+    margin 0 0 0 13em
+    background rgba(236, 238, 239, 0.7)
+    padding .4em 1.5em
 </style>
