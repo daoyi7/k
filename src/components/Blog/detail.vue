@@ -3,8 +3,8 @@
       <h2 class="title">
         <span>{{ this.title }}</span>
       </h2>
-      <div class="main">
-        <pre>{{ this.content }}</pre>
+      <div class="main" v-html="this.content">
+        {{ this.content }}
       </div>
       <div class="more">
         <span class="published">This article published by {{ this.author }}</span>
@@ -40,6 +40,7 @@ export default {
         }
       }).then((res) => {
         this.data = res.data.posts
+        console.log(typeof this.data)
 
         for(let i=0;i<this.data.length;i++) {
           idArr.push(this.data[i].id)
@@ -47,10 +48,12 @@ export default {
 
         const index = idArr.indexOf(parseInt(id))
         this.title = this.data[index].title_plain
-        this.content = this.data[index].content
+        this.content =this.data[index].content
         this.updatetime = this.data[index].modified
         this.type = this.data[index].categories[0].slug
         this.author = this.data[index].author.name
+
+        console.log(typeof this.title);
       })
     }
   },
