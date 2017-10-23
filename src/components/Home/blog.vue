@@ -25,7 +25,7 @@
           {{ blog.title_plain }}
         </router-link>
         </h4>
-        <p class="info" v-if="blog.excerpt">{{ blog.excerpt | info }}</p>
+        <p class="info" v-if="blog.excerpt" v-html="blog.excerpt">{{ blog.excerpt }}</p>
         <div class="list">
           <p class="list-icon time">
             <i class="icon iconfont icon-updatetime"></i>
