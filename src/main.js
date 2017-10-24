@@ -19,7 +19,12 @@ import detail from '@/components/Blog/detail'
 const router = new VueRouter({
   // mode: 'history',
   'linkActiveClass': 'active',
-  routes: [{
+  routes: [
+    // {
+    //   path: '*',
+    //   component: NotFoundComponent
+    // },
+    {
       path: '/',
       redirect: '/home'
     },
