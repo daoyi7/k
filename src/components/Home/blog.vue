@@ -67,18 +67,7 @@ export default {
       defaultImgUrl: '../static/images/logo.png',
     }
   },
-  watch: {
-    '$route'(to, from) {
-      this.fetchData()
-    }
-  },
   filters: {
-    info: function(value) {
-      const reg = /<p>(.*?)<\/p>/g
-      const result = value.match(reg)
-
-      return RegExp.$1
-    },
     moment: function(value) {
       return Vue.prototype.$moment(value).fromNow()
     },

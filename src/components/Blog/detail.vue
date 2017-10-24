@@ -34,7 +34,7 @@ export default {
 
       this.$http({
         method: 'get',
-        url: 'http://47.94.89.18/api/core/get_posts/',
+        url: 'http://47.94.89.18/api/core/get_posts/?count=9999999999',
         params: {
           id: this.$route.params.id
         }

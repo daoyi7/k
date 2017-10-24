@@ -11,8 +11,8 @@
                 <span class="hot-all-text">热门文章</span>
             </h2>
     <ul>
-      <li class="hot-list" v-for="(hot,index) in hots" key="index">
-        <span class="hot-num">{{ hot.num }}</span>
+      <li class="hot-list" v-for="(hot,index) in hots" :key="index">
+        <span class="hot-num">{{ index + 1 }}</span>
         <router-link class="hot-title" to="/detail">{{ hot.title }}</router-link>
       </li>
     </ul>
@@ -24,48 +24,67 @@
 export default {
   data() {
     return {
-      hots: [{
-          num: 1,
-          title: "The First Demo"
-        },
-        {
-          num: 2,
-          title: "Its second LOL"
-        },
-        {
-          num: 3,
-          title: "Ok Im wrong man"
-        },
-        {
-          num: 4,
-          title: "So exaut"
-        },
-        {
-          num: 5,
-          title: "I Dont know say what"
-        },
-        {
-          num: 6,
-          title: "Six Six Six"
-        },
-        {
-          num: 7,
-          title: "Ya Hip-Hop Man"
-        },
-        {
-          num: 8,
-          title: "This about eight content"
-        },
-        {
-          num: 9,
-          title: "Get a long title about this module OK?"
-        },
-        {
-          num: 10,
-          title: "I wanna test about 10"
-        },
-      ]
+      hots: '',
+      // hots: [{
+      //     num: 1,
+      //     title: "The First Demo"
+      //   },
+      //   {
+      //     num: 2,
+      //     title: "Its second LOL"
+      //   },
+      //   {
+      //     num: 3,
+      //     title: "Ok Im wrong man"
+      //   },
+      //   {
+      //     num: 4,
+      //     title: "So exaut"
+      //   },
+      //   {
+      //     num: 5,
+      //     title: "I Dont know say what"
+      //   },
+      //   {
+      //     num: 6,
+      //     title: "Six Six Six"
+      //   },
+      //   {
+      //     num: 7,
+      //     title: "Ya Hip-Hop Man"
+      //   },
+      //   {
+      //     num: 8,
+      //     title: "This about eight content"
+      //   },
+      //   {
+      //     num: 9,
+      //     title: "Get a long title about this module OK?"
+      //   },
+      //   {
+      //     num: 10,
+      //     title: "I wanna test about 10"
+      //   },
+      // ]
     }
+  },
+  created() {
+    let idArr = []
+
+    this.$http({
+        method: 'get',
+        url: 'http://47.94.89.18/api/core/get_posts/?count=9999999999',
+      }).then((res) => {
+        this.hots = res.data.posts.slice(0, 10)
+
+        console.log(this.hots)
+        for (let i = 0; i < this.hots.length; i++) {
+          console.log(this.hots[i].comment_count)
+        }
+      })
+      .catch(function(error) {
+        console.error(error);
+      })
   }
 }
 </script>
