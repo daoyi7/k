@@ -9,21 +9,9 @@
       </div>
       <div class="main">
         <h4 class="title">
-          <router-link
-          :to="{
-            name: 'detail',
-            params: {
-              id: blog.id,
-              title: blog.title,
-              content: blog.content,
-              updatetime: blog.modified,
-              type: blog.categories[0].slug,
-              author: blog.author.name,
-            }
-            }"
-          >
-          {{ blog.title_plain }}
-        </router-link>
+          <router-link :to="{ name: 'detail',params: { id: blog.id}}">
+            {{ blog.title_plain }}
+          </router-link>
         </h4>
         <p class="info" v-if="blog.excerpt" v-html="blog.excerpt">{{ blog.excerpt }}</p>
         <div class="list">
@@ -176,6 +164,7 @@ export default {
                 cursor pointer
               &.tag
                 i
-                    font-weight 700
+                  font-size .5em
+                  font-weight 700
 
 </style>
