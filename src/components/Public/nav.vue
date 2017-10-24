@@ -38,7 +38,6 @@ export default {
 
     .nav
       position fixed
-      top 7em
       width 11.7em
       .nav-wrap
         width 100%

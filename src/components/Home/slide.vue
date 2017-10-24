@@ -27,20 +27,7 @@ export default {
         mousewheelControl: false,
         observeParents: true,
         autoplayDisableOnInteraction: false,
-      },
-      swiperSlides: [{
-          thumb: "static/images/bg.png",
-          title: "bg1",
-        },
-        {
-          thumb: "static/images/bg1.png",
-          title: "bg2",
-        },
-        {
-          thumb: "static/images/bg2.png",
-          title: "bg3",
-        },
-      ]
+      }
     }
   },
 }

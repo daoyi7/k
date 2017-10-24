@@ -75,10 +75,10 @@ export default {
     float left
     position relative
     overflow hidden
-    width 63.4em
-    margin 0 0 0 13em
+    width 61.4em
+    margin 0 0 8em 13em
     background rgba(236, 238, 239, 0.7)
-    padding .4em 1.5em
+    padding .4em 2.5em
     .title
       width 100%
       line-height 2.5em
@@ -92,6 +92,15 @@ export default {
       overflow hidden
       font-size 1.4em
       line-height 2em
-      p
-        line-height 2em
+    .more
+      padding .4em 1.5em
+      margin 1.9em 0 .8em
+      background rgba(208, 208, 208, 0.7)
+      overflow hidden
+      font-size 1.4em
+      line-height 2.2em
+      span
+        margin-right .8em
+      span:last-child
+        margin-right 0
 </style>
