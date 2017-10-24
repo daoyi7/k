@@ -79,4 +79,19 @@ export default {
     margin 0 0 0 13em
     background rgba(236, 238, 239, 0.7)
     padding .4em 1.5em
+    .title
+      width 100%
+      line-height 2.5em
+      font-size 1.8em
+      font-weight 700
+      text-align center
+      padding-bottom 1.6em
+    .main
+      width 100%
+      height auto
+      overflow hidden
+      font-size 1.4em
+      line-height 2em
+      p
+        line-height 2em
 </style>
