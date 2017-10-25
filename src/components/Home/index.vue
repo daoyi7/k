@@ -27,7 +27,7 @@ export default {
   created() {
     this.$http({
       method: 'get',
-      url: 'http://47.94.89.18/api/core/get_posts/?count=9999999999',
+      url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
     }).then((res) => {
       this.blog = res.data.posts
       this.slide = res.data.posts.slice(0, 5)

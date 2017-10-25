@@ -21,7 +21,7 @@ export default {
   created() {
     this.$http({
         method: 'get',
-        url: 'http://47.94.89.18/api/core/get_category_index/',
+        url: 'http://localhost/wordpress/api/core/get_category_index/',
       }).then((res) => {
         this.navs = res.data.categories
 
