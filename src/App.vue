@@ -5,13 +5,13 @@
   <v-header></v-header>
   <main class="main">
     <v-nav></v-nav>
-    <transition name="fade">
-      <router-view/>
-    </transition>
     <v-right></v-right>
-    <div style="clear:both;"></div>
+    <transition name="fade">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </main>
-  <div style="clear:both;"></div>
   <v-footer></v-footer>
   <backtop></backtop>
 </div>
@@ -43,6 +43,7 @@ export default {
     #app
       .main
         width 98.6em
+        height 100%
         margin 0 auto
         overflow hidden
         &:after

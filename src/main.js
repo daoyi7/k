@@ -15,15 +15,17 @@ Vue.prototype.$moment = moment
 
 import index from '@/components/Home/index'
 import detail from '@/components/Blog/detail'
+import project from '@/components/Project/project'
+import NotFound from '@/components/NotFound/404'
 
 const router = new VueRouter({
   // mode: 'history',
   'linkActiveClass': 'active',
   routes: [
-    // {
-    //   path: '*',
-    //   component: NotFoundComponent
-    // },
+    {
+      path: '*',
+      component: NotFound
+    },
     {
       path: '/',
       redirect: '/home'
@@ -41,7 +43,7 @@ const router = new VueRouter({
     {
       path: '/project',
       name: 'project',
-      component: index
+      component: project
     },
     {
       path: '/think',
