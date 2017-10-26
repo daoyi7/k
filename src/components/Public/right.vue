@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      hots: Array,
+      hots: [],
     }
   },
   created() {

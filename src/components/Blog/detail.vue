@@ -1,17 +1,17 @@
 <template>
-  <div class="detail">
-      <h2 class="title">
+<div class="detail">
+  <h2 class="title">
         <span>{{ this.title }}</span>
       </h2>
-      <div class="main" v-html="this.content">
-        {{ this.content }}
-      </div>
-      <div class="more">
-        <span class="published">This article published by {{ this.author }}</span>
-        <span class="update">{{ this.updatetime }}</span>
-        <span class="tag">{{ this.type }}</span>
-      </div>
+  <div class="main" v-html="this.content">
+    {{ this.content }}
   </div>
+  <div class="more">
+    <span class="published">This article published by {{ this.author }}</span>
+    <span class="update">{{ this.updatetime }}</span>
+    <span class="tag">{{ this.type }}</span>
+  </div>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -20,12 +20,12 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      data: Array,
-      title: String,
-      content: String,
-      updatetime: String,
-      type: String,
-      author: String
+      data: [],
+      title: '',
+      content: '',
+      updatetime: '',
+      type: '',
+      author: ''
     }
   },
   methods: {
@@ -38,13 +38,13 @@ export default {
       }).then((res) => {
         this.data = res.data.posts
 
-        for(let i=0;i<this.data.length;i++) {
+        for (let i = 0; i < this.data.length; i++) {
           idArr.push(this.data[i].id)
         }
 
         const index = idArr.indexOf(parseInt(id))
         this.title = this.data[index].title
-        this.content =this.data[index].content
+        this.content = this.data[index].content
         this.updatetime = this.data[index].modified
         this.type = this.data[index].categories[0].slug
         this.author = this.data[index].author.name
@@ -56,9 +56,9 @@ export default {
     this.getData(this.id)
   },
   watch: {
-    '$route'(to,from){
-      this.id=this.$route.params.id
-        this.getData(this.id)
+    '$route' (to, from) {
+      this.id = this.$route.params.id
+      this.getData(this.id)
     }
   },
   filters: {
