@@ -15,8 +15,8 @@ export default {
   name: 'index',
   data() {
     return {
-      blog: '',
-      slide: ''
+      blog: Array,
+      slide: Array
     }
   },
   components: {
@@ -31,8 +31,6 @@ export default {
     }).then((res) => {
       this.blog = res.data.posts
       this.slide = res.data.posts.slice(0, 5)
-
-      console.log(this.blog)
     })
     .catch(function(error) {
       console.error(error);

@@ -14,7 +14,10 @@
 export default {
   name: 'carrousel',
   props: {
-    slides: ''
+    slides: {
+      type: Array,
+      default: []
+    }
   },
   data() {
     return {
@@ -37,36 +40,36 @@ export default {
 @import "../../common/mixin";
 
     .slide-wrap
-        margin-bottom 1em
-        .slide-item
+      margin-bottom 1em
+      .slide-item
+        width 100%
+        height 25em
+        position relative
+        overflow hidden
+        .slide-link
+          span.slide-title
+            position absolute
+            right 1.7em
+            top 1.2em
+            z-index 2
+            padding .4em .7em
+            display block
+            background rgba(183, 191, 197, 0.25)
+            color #fff
+            font-size 1.4em
+          img.slide-thumb
+            position absolute
+            top -6.5em
             width 100%
-            height 25em
-            position relative
-            overflow hidden
-            .slide-link
-                span.slide-title
-                    position absolute
-                    right 1.7em
-                    top 1.2em
-                    z-index 2
-                    padding .4em .7em
-                    display block
-                    background rgba(183, 191, 197, 0.25)
-                    color #fff
-                    font-size 1.4em
-                img.slide-thumb
-                    position absolute
-                    top -6.5em
-                    width 100%
-                    transform rotate(0) scale(1)
-                    trans(transform, 1s)
-                    &:hover
-                        transform rotate(2deg) scale(1.1)
-        .pagination
-            position absolue
-            text-align center
-            transition 300ms
-            transform translate3d(0, 0, 0)
-            z-index 10
+            transform rotate(0) scale(1)
+            trans(transform, 1s)
+            &:hover
+              transform rotate(2deg) scale(1.1)
+      .pagination
+        position absolue
+        text-align center
+        transition 300ms
+        transform translate3d(0, 0, 0)
+        z-index 10
 
 </style>

@@ -48,7 +48,10 @@ import Vue from 'vue'
 export default {
   name: 'blog',
   props: {
-    blogs: ''
+    blogs: {
+      type: Array,
+      default: []
+    }
   },
   data() {
     return {

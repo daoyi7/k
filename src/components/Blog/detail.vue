@@ -20,20 +20,18 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      data: '',
-      title: '',
-      content: '',
-      updatetime: '',
-      type: '',
-      author: ''
+      data: Array,
+      title: String,
+      content: String,
+      updatetime: String,
+      type: String,
+      author: String
     }
   },
   methods: {
     getData(id) {
-      console.log(id)
       let idArr = []
-      //     id = this.$route.params.id
-      //
+
       this.$http({
         method: 'get',
         url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999'
