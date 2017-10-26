@@ -1,7 +1,7 @@
 <template>
 <div class="project">
   <div class="item" v-for="(repo, index) in repos" key="index">
-    <a :href="repo.html_url">
+    <a :href="repo.html_url" target="_blank">
       <div class="thumb">
         <i class="icon iconfont" :class="['icon-' + repo.language]"></i>
       </div>
@@ -31,7 +31,6 @@ export default {
         url: 'https://api.github.com/users/daoyi7/repos',
       }).then((res) => {
         this.repos = res.data
-        console.log(res.data)
       })
       .catch(function(error) {
         console.error(error);
