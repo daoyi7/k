@@ -7,9 +7,9 @@
     <v-nav></v-nav>
     <v-right></v-right>
     <transition name="fade">
-      <keep-alive>
+      <!-- <keep-alive> -->
         <router-view></router-view>
-      </keep-alive>
+      <!-- </keep-alive> -->
     </transition>
   </main>
   <v-footer></v-footer>

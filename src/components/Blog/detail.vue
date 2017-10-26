@@ -19,6 +19,7 @@ export default {
   name: 'detail',
   data() {
     return {
+      id: this.$route.params.id,
       data: '',
       title: '',
       content: '',
@@ -28,16 +29,14 @@ export default {
     }
   },
   methods: {
-    getData() {
-      let idArr = [],
-          id = this.$route.params.id
-
+    getData(id) {
+      console.log(id)
+      let idArr = []
+      //     id = this.$route.params.id
+      //
       this.$http({
         method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
-        params: {
-          id: this.$route.params.id
-        }
+        url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999'
       }).then((res) => {
         this.data = res.data.posts
 
@@ -46,7 +45,7 @@ export default {
         }
 
         const index = idArr.indexOf(parseInt(id))
-        this.title = this.data[index].title_plain
+        this.title = this.data[index].title
         this.content =this.data[index].content
         this.updatetime = this.data[index].modified
         this.type = this.data[index].categories[0].slug
@@ -56,7 +55,13 @@ export default {
     }
   },
   mounted() {
-    this.getData()
+    this.getData(this.id)
+  },
+  watch: {
+    '$route'(to,from){
+      this.id=this.$route.params.id
+        this.getData(this.id)
+    }
   },
   filters: {
     info: function(value) {

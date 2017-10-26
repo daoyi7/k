@@ -65,5 +65,6 @@ export default {
               font-size 1.4em
               margin-left 0.4em
               vertical-align middle
+              text-transform uppercase
 
 </style>

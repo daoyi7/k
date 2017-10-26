@@ -1,19 +1,20 @@
 <template>
 <div class="right">
   <div class="search-box">
-    <input class="search-text" type="text" placeholder="Search your want..."><button class="search-submit">
-                <i class="icon iconfont icon-search"></i>
-            </button>
+    <input class="search-text" type="text" placeholder="Search your want...">
+    <button class="search-submit">
+      <i class="icon iconfont icon-search"></i>
+    </button>
   </div>
   <div class="hot-reads">
     <h2 class="hot-all">
-                <i class="icon iconfont icon-right-list"></i>
-                <span class="hot-all-text">热门文章</span>
-            </h2>
+      <i class="icon iconfont icon-right-list"></i>
+      <span class="hot-all-text">热门文章</span>
+    </h2>
     <ul>
       <li class="hot-list" v-for="(hot,index) in hots" :key="index">
         <span class="hot-num">{{ index + 1 }}</span>
-        <router-link class="hot-title" to="/detail">{{ hot.title }}</router-link>
+        <router-link class="hot-title" :to="{ name: 'detail',params: { id: hot.id}}">{{ hot.title }}</router-link>
       </li>
     </ul>
   </div>

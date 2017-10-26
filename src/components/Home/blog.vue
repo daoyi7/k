@@ -10,7 +10,7 @@
       <div class="main">
         <h4 class="title">
           <router-link :to="{ name: 'detail',params: { id: blog.id}}">
-            {{ blog.title_plain }}
+            {{ blog.title }}
           </router-link>
         </h4>
         <p class="info" v-if="blog.excerpt" v-html="blog.excerpt">{{ blog.excerpt }}</p>
