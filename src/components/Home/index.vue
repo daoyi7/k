@@ -1,8 +1,8 @@
 <template>
 <div class="content">
-  <v-slide :slides="slide"></v-slide>
+  <v-slide :slides="slides"></v-slide>
   <v-notice></v-notice>
-  <v-blog :blogs="blog"></v-blog>
+  <v-blog :blogs="blogs"></v-blog>
 </div>
 </template>
 
@@ -15,8 +15,7 @@ export default {
   name: 'index',
   data() {
     return {
-      blog: Array,
-      slide: Array
+      posts: []
     }
   },
   components: {
@@ -26,15 +25,22 @@ export default {
   },
   created() {
     this.$http({
-      method: 'get',
-      url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
-    }).then((res) => {
-      this.blog = res.data.posts
-      this.slide = res.data.posts.slice(0, 5)
-    })
-    .catch(function(error) {
-      console.error(error);
-    })
+        method: 'get',
+        url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
+      }).then((res) => {
+        this.posts = res.data.posts
+      })
+      .catch(function(error) {
+        console.error(error);
+      })
+  },
+  computed: {
+    blogs() {
+      return this.posts
+    },
+    slides() {
+      return this.posts.slice(0, 5)
+    }
   }
 }
 </script>
