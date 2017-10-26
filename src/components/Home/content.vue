@@ -1,9 +1,9 @@
 <template>
-<div class="blog-wrap">
-  <div class="blog-item">
-    <div class="blog-module" v-for="(blog, index) in blogs" :key="blog.id">
+<div class="contentWrap">
+  <div class="item">
+    <div class="module" v-for="(blog, index) in blogs" :key="blog.id">
       <div class="thumb">
-        <router-link to="/">
+        <router-link :to="{ name: 'detail',params: { id: blog.id}}">
           <img :src="blog.thumbnail_images?blog.thumbnail_images.full.url:defaultImgUrl">
         </router-link>
       </div>
@@ -73,14 +73,14 @@ export default {
 
   trans = .5s linear
 
-  .blog-wrap
+  .contentWrap
     width 100%
     height auto
     overflow hidden
     margin-top 1em
-    .blog-item
+    .item
       width 100%
-      .blog-module
+      .module
         position relative
         width 100%
         background #fff

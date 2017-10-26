@@ -16,6 +16,8 @@ Vue.prototype.$moment = moment
 import index from '@/components/Home/index'
 import detail from '@/components/Blog/detail'
 import project from '@/components/Project/project'
+import blog from '@/components/Blog/blog'
+import think from '@/components/Think/think'
 import NotFound from '@/components/NotFound/404'
 
 const router = new VueRouter({
@@ -38,7 +40,7 @@ const router = new VueRouter({
     {
       path: '/blog',
       name: 'blog',
-      component: index
+      component: blog
     },
     {
       path: '/project',
@@ -48,7 +50,7 @@ const router = new VueRouter({
     {
       path: '/think',
       name: 'think',
-      component: index
+      component: think
     },
     {
       path: '/about',

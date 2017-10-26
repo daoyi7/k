@@ -24,8 +24,6 @@ export default {
         url: 'http://localhost/wordpress/api/core/get_category_index/',
       }).then((res) => {
         this.navs = res.data.categories
-
-        console.log(this.navs)
       })
       .catch(function(error) {
         console.error(error);

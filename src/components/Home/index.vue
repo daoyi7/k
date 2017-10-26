@@ -2,14 +2,14 @@
 <div class="content">
   <v-slide :slides="slides"></v-slide>
   <v-notice></v-notice>
-  <v-blog :blogs="blogs"></v-blog>
+  <v-content :blogs="blogs"></v-content>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
 import slide from '@/components/Home/slide'
 import notice from '@/components/Home/notice'
-import blog from '@/components/Home/blog'
+import content from '@/components/Home/content'
 
 export default {
   name: 'index',
@@ -21,7 +21,7 @@ export default {
   components: {
     'v-slide': slide,
     'v-notice': notice,
-    'v-blog': blog,
+    'v-content': content,
   },
   created() {
     this.$http({
