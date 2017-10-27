@@ -113,6 +113,7 @@ export default {
                     display flex
                     &:last-child .hot-num
                         text-align left
+                        text-indent .08em
                     &:hover
                         .hot-num
                             background #00030d
