@@ -54,7 +54,8 @@ export default {
           visibility  hidden
           overflow hidden
       .fade-enter-active, .fade-leave-active
-        transition opacity .5s
+        transition all .5s
       .fade-enter, .fade-leave-to
         opacity 0
+        width 66.4em
 </style>

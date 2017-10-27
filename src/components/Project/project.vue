@@ -45,40 +45,49 @@ export default {
 
     .project
       float left
-      width 66.4em
+      width 85.55em
       margin 0 0 0 13em
       position relative
       overflow hidden
       display flex
       flex-wrap wrap
-      .item:hover
-        background rgba(255, 255, 255, 0.3)
-        .thumb
-          img
-            transform scale(1.5)
-      .item:last-child
-        margin-right 0
+      // background #ccc
       .item
-        margin 0 .4em .8em 0
+        margin 0 .88em .8em 0
         background rgba(255, 255, 255, 0.7)
-        flex 0 0 16.2em
-        width 16.2em
+        flex 0 0 20.5em
+        width 20.5em
         transition background trans
+        &:hover
+          background rgba(255, 255, 255, 0.3)
+          .thumb
+            img
+              transform scale(1.5)
+        &:last-child
+          margin-right 0
         .thumb
           width 100%
-          height 10em
+          height 11.5em
           overflow hidden
           text-align center
-          line-height 12.5em
+          line-height 14.5em
           i
-            font-size 5em
-            color #5d5c5c
+            font-size 10em
+            color rgb(154, 154, 154)
+            &.icon-Vue
+              color #42b983
+            &.icon-JavaScript
+              color #f9e031
+            &.icon-PHP
+              color #5b66a4
+            &.icon-HTML
+              color #f16528
         .content
           padding .4em 1em 1.2em 1em
           .title
-            line-height 2em
+            line-height 1.5em
             text-align center
-            font-size 1.5em
+            font-size 2em
             color #00030d
             font-weight 700
             white-space nowrap
@@ -89,7 +98,7 @@ export default {
             color #00030d
             line-height 2em
             text-indent 1.6em
-            font-size 1.1em
+            font-size 1.4em
             height 4em
             -o-text-overflow ellipsis
             text-overflow ellipsis
@@ -106,5 +115,7 @@ export default {
               flex 1
               text-align center
               font-size 1.4em
+              i
+                margin-right .5em
 
 </style>

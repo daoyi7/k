@@ -1,5 +1,5 @@
 <template>
-<div class="right">
+<div class="right" v-if="$route.path!=='/project'">
   <div class="search-box">
     <input class="search-text" type="text" placeholder="Search your want...">
     <button class="search-submit">
