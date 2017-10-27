@@ -18,6 +18,7 @@ import detail from '@/components/Blog/detail'
 import project from '@/components/Project/project'
 import blog from '@/components/Blog/blog'
 import think from '@/components/Think/think'
+import search from '@/components/Search/search'
 import NotFound from '@/components/NotFound/404'
 
 const router = new VueRouter({
@@ -56,6 +57,11 @@ const router = new VueRouter({
       path: '/about',
       name: 'about',
       component: index
+    },
+    {
+      path: '/search/:search',
+      name: 'search',
+      component: search
     },
     {
       path: '/detail/:id',

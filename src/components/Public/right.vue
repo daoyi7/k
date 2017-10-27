@@ -1,8 +1,8 @@
 <template>
 <div class="right" v-if="$route.path!=='/project'">
   <div class="search-box">
-    <input class="search-text" type="text" placeholder="Search your want...">
-    <button class="search-submit">
+    <input class="search-text" type="text" v-model="searchText" placeholder="Search your want...">
+    <button class="search-submit" @click="search">
       <i class="icon iconfont icon-search"></i>
     </button>
   </div>
@@ -25,6 +25,7 @@
 export default {
   data() {
     return {
+      searchText: '',
       hots: [],
     }
   },
@@ -40,6 +41,14 @@ export default {
       .catch(function(error) {
         console.error(error);
       })
+  },
+  methods: {
+    search() {
+      console.log(this.searchText)
+      if(this.searchText !== '') {
+        this.$router.push({path:'/search/'+this.searchText})
+      }
+    }
   }
 }
 </script>
