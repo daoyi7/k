@@ -2,7 +2,7 @@
 <div class="search">
   <div class="head">
     <p class="head-icon"><i class="icon iconfont icon-read"></i></p>
-    <p class="slogan" v-text="slogan"></p>
+    <p class="slogan">这是所有关于 "{{ this.search }}" 的文章</p>
   </div>
   <div class="module" v-for="(srch, index) in searches" key="index">
     <div class="thumb">
@@ -34,7 +34,7 @@
         </p>
         <p class="list-icon tag">
           <i class="icon iconfont icon-tag"></i>
-          <span>{{ srch.categories[0].slug }}</span>
+          <span>{{ srch.id }}</span>
         </p>
       </div>
     </div>
@@ -48,67 +48,31 @@ import Vue from 'vue'
 export default {
   data() {
     return {
+      defaultImgUrl: '../static/images/logo.png',
       searches: {},
-      slogan: "",
       search: this.$route.params.search,
     }
   },
-  created() {
-    this.$http({
-        method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_search_results/?search='+this.search,
-      }).then((res) => {
-        this.searches = res.data.posts
-        console.log(this.searches)
-        console.log(this.search)
-      })
-      .catch(function(error) {
-        console.error(error)
-      })
+  methods: {
+    getData(result) {
+      this.$http({
+          method: 'get',
+          url: 'http://localhost/wordpress/api/core/get_search_results/?search='+result,
+        }).then((res) => {
+          this.searches = res.data.posts
+        })
+        .catch(function(error) {
+          console.error(error)
+        })
+    },
+    searchShow() {
+      if(this.searches.length == 0) {
+        return false
+      }
+    }
   },
   mounted() {
-    this.init()
-  },
-  methods: {
-    init() {
-      let str = "The true test of a man's character is what he does when no one is watching.",
-        _this = this,
-        timer = null;
-
-      function typing() {
-        let i = -1,
-
-          timer = setInterval(() => {
-            i = i + 1
-
-            _this.slogan = _this.slogan + str[i]
-
-            if (i > str.length - 2) {
-              clearInterval(timer)
-              setTimeout(deleting, 2000)
-            }
-          }, 100)
-      }
-
-      function deleting() {
-        let wstr = str.split(""),
-          j = wstr.length;
-
-        timer = setInterval(function() {
-          j = j - 1
-          wstr = wstr.slice(0, j)
-          _this.slogan = wstr.join("")
-
-          if (j <= 0) {
-            clearInterval(timer)
-            setTimeout(typing, 200)
-          }
-        }, 100)
-
-      }
-
-      typing()
-    },
+    this.getData(this.search)
   },
   filters: {
     moment: function(value) {
@@ -117,19 +81,21 @@ export default {
     views: function(value) {
       return value.toString()
     }
-  }
+  },
+  watch: {
+    '$route'(to,from){
+      if((from !== to)&&(to.name==='search')) {
+        this.search = this.$route.params.search
+        this.getData(this.search)
+      }
+    }
+  },
 }
 </script>
 
 <style lang="stylus" scoped>
 
 trans = .5s linear
-
-@keyframes blink
-  from
-    opacity 1
-  to
-    opacity 0
 
 .search
   float left
@@ -163,16 +129,6 @@ trans = .5s linear
       text-align center
       font-size 1.7em
       padding .4em 0
-    .slogan::after
-      content ""
-      background-color #00030d
-      width .06em
-      height 1em
-      vertical-align -.2em
-      margin-left .2em
-      display inline-block
-      animation blink .4s infinite alternate
-      -webkit-animation blink .4s infinite alternate
   .module
     position relative
     width 100%
