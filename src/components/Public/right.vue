@@ -48,7 +48,7 @@ export default {
         this.$router.push({path:'/search/'+this.searchText})
       }
     }
-  }
+  },
 }
 </script>
 
