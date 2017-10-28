@@ -39,7 +39,7 @@ export default {
         this.hots = res.data.posts.slice(0, 10)
       })
       .catch(function(error) {
-        console.error(error);
+        console.error(error)
       })
   },
   methods: {

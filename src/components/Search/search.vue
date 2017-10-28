@@ -48,7 +48,6 @@ import Vue from 'vue'
 export default {
   data() {
     return {
-      // http://localhost/wordpress/api/core/get_search_results/?search=%E4%B8%96%E7%95%8C
       searches: {},
       slogan: "",
       search: this.$route.params.search,
@@ -64,7 +63,7 @@ export default {
         console.log(this.search)
       })
       .catch(function(error) {
-        console.error(error);
+        console.error(error)
       })
   },
   mounted() {
@@ -142,7 +141,8 @@ trans = .5s linear
     position relative
     width 100%
     height 25em
-    background rgba(236, 238, 239, 0.7)
+    // background rgba(236, 238, 239, 0.7)
+    background-color #fff
     overflow hidden
     display flex
     align-items center
@@ -198,11 +198,15 @@ trans = .5s linear
       margin-right 1em
       padding-left 0.5em
       a
+        position relative
         width 100%
         height 100%
         display block
         overflow hidden
         img
+          position absolute
+          top -1em
+          left -.5em
           min-width 100%
           max-width calc(100% + 1.5em)
           width calc(100% + 1.5em)

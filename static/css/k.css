@@ -8,13 +8,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #fff;
 }
 
-
-/*定义滑块 内阴影+圆角*/
-
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: rgba(108, 110, 111, 0.8);
 }
 
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background-color: rgba(108, 110, 111, 1);
 }
