@@ -1,7 +1,7 @@
 <template>
 <div class="right" v-if="$route.path!=='/project'">
   <div class="search-box">
-    <input class="search-text" type="text" v-model="searchText" placeholder="Search your want...">
+    <input class="search-text" type="text" v-model="searchText" placeholder="Search your want..."  @keyup.enter="search">
     <button class="search-submit" @click="search">
       <i class="icon iconfont icon-search"></i>
     </button>
@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     search() {
-      console.log(this.searchText)
       if(this.searchText !== '') {
         this.$router.push({path:'/search/'+this.searchText})
       }

@@ -172,7 +172,8 @@ export default {
     .module
       position relative
       width 100%
-      background rgba(236, 238, 239, 0.7)
+      // background rgba(236, 238, 239, 0.7)
+      background-color #fff
       padding .4em 0em
       margin-bottom 1em
       display flex
