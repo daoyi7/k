@@ -1,7 +1,7 @@
 <template>
 <div class="search">
   <div class="head">
-    <p class="head-icon"><i class="icon iconfont icon-read"></i></p>
+    <p class="head-icon"><i class="icon iconfont icon-search"></i></p>
     <p class="slogan">这是所有关于 "{{ this.search }}" 的文章</p>
   </div>
   <div class="module" v-for="(srch, index) in searches" key="index">
@@ -97,6 +97,18 @@ export default {
 
 trans = .5s linear
 
+@keyframes rotate
+  0%
+    transform rotateY(0)
+  // 25%
+  //   transform rotateY(45deg)
+  50%
+    transform rotateY(90deg)
+  // 75%
+  //   transform rotateY(135deg)
+  100%
+    transform rotateY(180deg)
+
 .search
   float left
   width 66.4em
@@ -119,7 +131,9 @@ trans = .5s linear
       display flex
       justify-content center
       i
-        font-size 15em
+        font-size 12em
+        color #b7bfc5
+        animation rotate 3s linear infinite alternate
     .slogan
       position absolute
       left 0
@@ -128,7 +142,7 @@ trans = .5s linear
       height auto
       text-align center
       font-size 1.7em
-      padding .4em 0
+      padding .4em 0 1em
   .module
     position relative
     width 100%

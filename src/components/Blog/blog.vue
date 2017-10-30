@@ -160,7 +160,7 @@ export default {
         height auto
         text-align center
         font-size 1.7em
-        padding .4em 0
+        padding .4em 0 1em
       .slogan::after
         content ""
         background-color #00030d
