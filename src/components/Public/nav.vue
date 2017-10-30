@@ -23,7 +23,7 @@ export default {
         method: 'get',
         url: 'http://localhost/wordpress/api/core/get_category_index/',
       }).then((res) => {
-        this.navs = res.data.categories
+        this.navs = res.data.categories.slice(0, 5)
       })
       .catch(function(error) {
         console.error(error);

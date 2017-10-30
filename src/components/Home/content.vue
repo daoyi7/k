@@ -1,7 +1,7 @@
 <template>
 <div class="contentWrap">
   <div class="item">
-    <div class="module" v-for="(blog, index) in blogs" :key="blog.id">
+    <div class="module" v-for="(blog, index) in blogs" :key="blog.id" v-if="blog.categories[0].slug != 'notice'">
       <div class="thumb">
         <router-link :to="{ name: 'detail',params: { id: blog.id}}">
           <img :src="blog.thumbnail_images?blog.thumbnail_images.full.url:defaultImgUrl">

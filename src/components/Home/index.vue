@@ -29,6 +29,7 @@ export default {
         url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
       }).then((res) => {
         this.posts = res.data.posts
+        console.log(this.posts)
       })
       .catch(function(error) {
         console.error(error);

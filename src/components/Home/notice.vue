@@ -24,14 +24,19 @@ export default {
         direction: 'vertical',
         autoplayDisableOnInteraction: false,
       },
-      notices: [{
-          title: "bg1",
-        },
-        {
-          title: "bg2",
-        },
-      ]
+      notices: {}
     }
+  },
+  created() {
+    this.$http({
+        method: 'get',
+        url: 'http://localhost/wordpress/api/core/get_category_posts/?category_slug=notice&?count=5',
+      }).then((res) => {
+        this.notices = res.data.posts
+      })
+      .catch(function(error) {
+        console.error(error)
+      })
   },
 }
 </script>
