@@ -40,7 +40,14 @@ export default {
       return this.posts
     },
     slides() {
-      return this.posts.slice(0, 5)
+      let slidesArr = []
+      for(let i=0;i<this.posts.length;i++) {
+        if(this.posts[i].categories[0].slug!=="notice") {
+          console.log(this.posts[i])
+          slidesArr.push(this.posts[i])
+        }
+      }
+      return slidesArr.slice(0, 5)
     }
   }
 }
