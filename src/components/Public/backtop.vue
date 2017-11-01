@@ -10,7 +10,7 @@
     <i class="icon iconfont icon-wechat"></i>
   </div>
   <div class="rico weibo">
-    <a href="http://weibo.com/3117835707/profile?topnav=1&wvr=6" target="_blank" class="icon iconfont icon-weibo"></a>
+    <a href="http://weibo.com/daoyi369 " target="_blank" class="icon iconfont icon-weibo"></a>
   </div>
   <div class="rico twitter">
     <a href="https://twitter.com/WellCoding" target="_blank" class="icon iconfont icon-twitter"></a>
