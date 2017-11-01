@@ -39,7 +39,6 @@ export default {
         for(let i=0;i<res.data.posts.length;i++) {
           if(res.data.posts[i].categories[0].slug!=="notice") {
             this.hots.push(res.data.posts[i])
-            console.log(this.hots)
           }
         }
       })
