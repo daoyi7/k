@@ -29,7 +29,6 @@ export default {
         url: '/core/get_posts/?count=9999999999',
       }).then((res) => {
         this.posts = res.data.posts
-        console.log(this.posts)
       })
       .catch(function(error) {
         console.error(error);
@@ -43,7 +42,6 @@ export default {
       let slidesArr = []
       for(let i=0;i<this.posts.length;i++) {
         if(this.posts[i].categories[0].slug!=="notice") {
-          console.log(this.posts[i])
           slidesArr.push(this.posts[i])
         }
       }
