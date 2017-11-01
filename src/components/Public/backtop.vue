@@ -9,6 +9,9 @@
   <div class="rico wechat">
     <i class="icon iconfont icon-wechat"></i>
   </div>
+  <div class="rico weibo">
+    <a href="http://weibo.com/3117835707/profile?topnav=1&wvr=6" target="_blank" class="icon iconfont icon-weibo"></a>
+  </div>
   <div class="rico twitter">
     <a href="https://twitter.com/WellCoding" target="_blank" class="icon iconfont icon-twitter"></a>
   </div>
@@ -111,6 +114,8 @@ export default {
             color #0086f1
           &.icon-wechat:hover
             color #2ba245
+          &.icon-weibo:hover
+            color rgb(236, 54, 61)
           &.icon-twitter:hover
             color #1da1f2
           &.icon-github:hover
