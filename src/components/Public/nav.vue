@@ -21,7 +21,7 @@ export default {
   created() {
     this.$http({
         method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_category_index/',
+        url: '/core/get_category_index/',
       }).then((res) => {
         this.navs = res.data.categories.slice(0, 5)
       })

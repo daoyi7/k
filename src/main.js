@@ -5,11 +5,16 @@ import App from './App'
 import VueRouter from 'vue-router'
 import axios from "axios"
 import moment from "moment"
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 require('swiper/dist/css/swiper.css')
 
 Vue.use(VueRouter)
 Vue.use(VueAwesomeSwiper)
+
+import apiConfig from '../config/api.config'
+axios.defaults.baseURL = apiConfig.baseURL
+
 Vue.prototype.$http = axios
 Vue.prototype.$moment = moment
 

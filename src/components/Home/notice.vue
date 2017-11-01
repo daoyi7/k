@@ -30,7 +30,7 @@ export default {
   created() {
     this.$http({
         method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_category_posts/?category_slug=notice&?count=5',
+        url: '/core/get_category_posts/?category_slug=notice&?count=5',
       }).then((res) => {
         this.notices = res.data.posts
       })

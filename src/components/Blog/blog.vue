@@ -56,7 +56,7 @@ export default {
   created() {
     this.$http({
         method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_category_posts/?category_slug=blog&?count=9999999999',
+        url: '/core/get_category_posts/?category_slug=blog&?count=9999999999',
       }).then((res) => {
         this.blogs = res.data.posts
       })

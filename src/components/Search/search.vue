@@ -57,7 +57,7 @@ export default {
     getData(result) {
       this.$http({
           method: 'get',
-          url: 'http://localhost/wordpress/api/core/get_search_results/?search='+result,
+          url: '/core/get_search_results/?search='+result,
         }).then((res) => {
           this.searches = res.data.posts
         })

@@ -34,7 +34,7 @@ export default {
 
     this.$http({
         method: 'get',
-        url: 'http://localhost/wordpress/api/core/get_posts/?count=9999999999',
+        url: '/core/get_posts/?count=9999999999',
       }).then((res) => {
         this.hots = res.data.posts.slice(0, 10)
       })
