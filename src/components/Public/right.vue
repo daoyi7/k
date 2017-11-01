@@ -36,7 +36,12 @@ export default {
         method: 'get',
         url: '/core/get_posts/?count=9999999999',
       }).then((res) => {
-        this.hots = res.data.posts.slice(0, 10)
+        for(let i=0;i<res.data.posts.length;i++) {
+          if(res.data.posts[i].categories[0].slug!=="notice") {
+            this.hots.push(res.data.posts[i])
+            console.log(this.hots)
+          }
+        }
       })
       .catch(function(error) {
         console.error(error)

@@ -1,6 +1,6 @@
 <template>
 <swiper class="slide-wrap" :options="swiperOption">
-  <swiper-slide class="slide-item" v-for="(slide,index) in slides" key="index"  v-if="slide.categories[0].slug != 'notice'">
+  <swiper-slide class="slide-item" v-for="(slide,index) in slides" key="index">
     <router-link class="slide-link" to="/">
       <span class="slide-title">{{ slide.title }}</span>
       <img class="slide-thumb" :src="slide.thumbnail_images?slide.thumbnail_images.full.url:defaultImgUrl">
