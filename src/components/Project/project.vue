@@ -3,7 +3,7 @@
   <div class="item" v-for="(repo, index) in repos" key="index">
     <a :href="repo.html_url" target="_blank">
       <div class="thumb">
-        <i class="icon iconfont" :class="['icon-' + repo.language]"></i>
+        <i class="icon iconfont" :class="[repo.language?'icon-' + repo.language:'icon-repositories']"></i>
       </div>
       <div class="content">
         <h3 class="title">{{ repo.name }}</h3>
