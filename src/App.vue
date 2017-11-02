@@ -34,7 +34,7 @@ export default {
     'v-background': background,
     'backtop': backtop,
     'v-footer': footer
-  }
+  },
 }
 </script>
 

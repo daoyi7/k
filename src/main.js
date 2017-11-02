@@ -5,6 +5,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import axios from "axios"
 import moment from "moment"
+import 'clientjs'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 require('swiper/dist/css/swiper.css')
@@ -91,5 +92,5 @@ new Vue({
   template: '<App/>',
   components: {
     App
-  },
+  }
 })

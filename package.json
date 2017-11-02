@@ -11,18 +11,19 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "sass": "^1.0.0-beta.2",
-    "sass-loader": "^6.0.6",
+    "clientjs": "^0.1.11",
+    "moment": "^2.18.1",
     "particle-api-js": "^6.5.0",
     "particle.js": "^1.0.7",
-    "vue-particles": "^1.0.9",
+    "sass": "^1.0.0-beta.2",
+    "sass-loader": "^6.0.6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.2",
-    "moment": "^2.18.1"
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
