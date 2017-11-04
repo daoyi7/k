@@ -16,7 +16,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: rgba(108, 110, 111, 1);
 }
 
-.main img {
+.detail .main img {
   display: block;
   margin: 0 auto;
   max-width: 90%;
