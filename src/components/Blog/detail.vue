@@ -1,20 +1,24 @@
 <template>
-  <div class="detail">
-      <h2 class="title">
+<div class="detail">
+  <h2 class="title">
         <span>{{ this.title }}</span>
       </h2>
-      <div class="main" v-html="this.content">
-        {{ this.content }}
-      </div>
-      <div class="more">
-        <span class="published">This article published by {{ this.author }}</span>
-        <span class="update">{{ this.updatetime }}</span>
-        <span class="tag">{{ this.type }}</span>
-      </div>
+  <div class="main" v-html="this.content" @click.stop="imgIsShow">
+    {{ this.content }}
   </div>
+  <div class="img_view" v-if="imgShow" @click.stop="imgIsHide">
+    <img :src="this.imgSrc">
+  </div>
+  <div class="more">
+    <span class="published">This article published by {{ this.author }}</span>
+    <span class="update">{{ this.updatetime }}</span>
+    <span class="tag">{{ this.type }}</span>
+  </div>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
+
 export default {
   name: 'detail',
   data() {
@@ -25,7 +29,9 @@ export default {
       content: '',
       updatetime: '',
       type: '',
-      author: ''
+      author: '',
+      imgShow: false,
+      imgSrc: ''
     }
   },
   methods: {
@@ -38,38 +44,41 @@ export default {
       }).then((res) => {
         this.data = res.data.posts
 
-        for(let i=0;i<this.data.length;i++) {
+        for (let i = 0; i < this.data.length; i++) {
           idArr.push(this.data[i].id)
         }
 
         const index = idArr.indexOf(parseInt(id))
         this.title = this.data[index].title
-        this.content =this.data[index].content
+        this.content = this.data[index].content
         this.updatetime = this.data[index].modified
         this.type = this.data[index].categories[0].slug
         this.author = this.data[index].author.name
 
         document.title = this.title + ' | kawhi.me'
       })
+    },
+    imgIsShow(e) {
+      if(e.path[0].getAttribute('src'))
+        this.imgShow = true
+        this.imgSrc = e.path[0].getAttribute('src')
+    },
+    imgIsHide() {
+      this.imgShow = false
     }
   },
   mounted() {
     this.getData(this.id)
+    window.addEventListener('scroll', () => {
+      this.imgShow = false
+    })
   },
   watch: {
-    '$route'(to,from){
-      if(to.name === 'detail') {
-        this.id=this.$route.params.id
+    '$route' (to, from) {
+      if (to.name === 'detail') {
+        this.id = this.$route.params.id
         this.getData(this.id)
       }
-    }
-  },
-  filters: {
-    info: function(value) {
-      const reg = /<p>(.*?)<\/p>/g
-      const result = value.match(reg)
-
-      return RegExp.$1
     }
   },
 }
@@ -98,6 +107,22 @@ export default {
       overflow hidden
       font-size 1.4em
       line-height 2em
+    .img_view
+      position fixed
+      top 0
+      left 0
+      z-index 99999
+      width 100%
+      height 100%
+      display flex
+      justify-content center
+      align-items center
+      background-color rgba(0, 0, 0, 0.25)
+      img
+        max-width 90%
+        max-height 90%
+        border .25em solid rgba(238,238,238,0.5)
+        border-radius .5em
     .more
       padding .4em 1.5em
       margin 1.9em 0 .8em

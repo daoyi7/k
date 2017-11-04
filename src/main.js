@@ -19,6 +19,8 @@ axios.defaults.baseURL = apiConfig.baseURL
 Vue.prototype.$http = axios
 Vue.prototype.$moment = moment
 
+import store from './store/store'
+
 import index from '@/components/Home/index'
 import detail from '@/components/Blog/detail'
 import project from '@/components/Project/project'

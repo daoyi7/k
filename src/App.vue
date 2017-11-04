@@ -53,6 +53,19 @@ export default {
           content  ""
           visibility  hidden
           overflow hidden
+      .img_view
+        position fixed
+        top 0
+        left 0
+        z-index 99999
+        width 100%
+        height 100%
+        display flex
+        justify-content center
+        align-items center
+        background-color rgba(0, 0, 0, 0.25)
+        img
+          border 2px solid rgba(238,238,238,0.25)
       .fade-enter-active, .fade-leave-active
         transition all .5s
       .fade-enter, .fade-leave-to
