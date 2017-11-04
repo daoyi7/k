@@ -50,7 +50,8 @@ export default {
     return {
       defaultImgUrl: '../static/images/logo.png',
       slogan: "",
-      blogs: {}
+      blogs: {},
+      pageTile: this.$route.name.substr(0, 1).toUpperCase() + this.$route.name.substr(1)
     }
   },
   created() {
@@ -66,6 +67,7 @@ export default {
   },
   mounted() {
     this.init()
+    document.title = this.pageTile + ' | kawhi.me'
   },
   methods: {
     init() {

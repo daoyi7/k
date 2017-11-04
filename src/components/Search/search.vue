@@ -73,6 +73,7 @@ export default {
   },
   mounted() {
     this.getData(this.search)
+    document.title = this.search + ' | kawhi.me'
   },
   filters: {
     moment: function(value) {

@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       repos: [],
+      pageTile: this.$route.name.substr(0, 1).toUpperCase() + this.$route.name.substr(1)
     }
   },
   created() {
@@ -35,7 +36,10 @@ export default {
       .catch(function(error) {
         console.error(error)
       })
-  }
+  },
+  mounted() {
+    document.title = this.pageTile + ' | kawhi.me'
+  },
 }
 </script>
 
