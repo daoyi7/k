@@ -49,6 +49,7 @@ export default {
         this.type = this.data[index].categories[0].slug
         this.author = this.data[index].author.name
 
+        document.title = this.title + ' | kawhi.me'
       })
     }
   },
