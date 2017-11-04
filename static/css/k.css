@@ -19,6 +19,5 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .detail .main img {
   display: block;
   margin: 0 auto;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
 }
