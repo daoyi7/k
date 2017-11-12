@@ -23,7 +23,12 @@ export default {
         method: 'get',
         url: '/core/get_category_index/',
       }).then((res) => {
-        this.navs = res.data.categories.slice(0, 5)
+        let cates = res.data.categories
+
+        function sortId(a, b) {
+          return a.id - b.id
+        }
+        this.navs = cates.sort(sortId).slice(0, 5)
       })
       .catch(function(error) {
         console.error(error);

@@ -1,7 +1,7 @@
 <template>
 <div class="backTop">
   <div class="rico twitter">
-    <a href="http://47.94.89.18/feed/" target="_blank" class="icon iconfont icon-rss"></a>
+    <a href="http://47.96.30.198/feed/" target="_blank" class="icon iconfont icon-rss"></a>
   </div>
   <div class="rico qq">
     <i class="icon iconfont icon-qq"></i>
