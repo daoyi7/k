@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <div class="main" v-html="this.content" @click.stop="imgIsShow">
+    <div class="main" v-html="this.content">
       {{ this.content }}
     </div>
   </div>
