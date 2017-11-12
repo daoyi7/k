@@ -24,9 +24,7 @@ export default {
         url: '/core/get_category_posts/?category_id=5'
       }).then((res) => {
         let about = res.data.posts[0]
-        console.log(res.data.posts[0])
 
-        // const index = idArr.indexOf(parseInt(id))
         this.title = about.title
         this.content = about.content
 
