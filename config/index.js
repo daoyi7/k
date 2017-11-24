@@ -33,7 +33,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api/**': {
-        target: 'http://api.codingwell.xyz/api/',
+        target: 'http://api.kawhi.me/api/',
         changeOrigin: true,
         pathRewrite: {
           '^/api' :'/'

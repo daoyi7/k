@@ -31,7 +31,7 @@ import search from '@/components/Search/search'
 import NotFound from '@/components/NotFound/404'
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   'linkActiveClass': 'active',
   routes: [
     {
@@ -39,11 +39,11 @@ const router = new VueRouter({
       component: NotFound
     },
     {
-      path: '/',
-      redirect: '/home'
+      path: '/home',
+      redirect: '/'
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: index
     },
